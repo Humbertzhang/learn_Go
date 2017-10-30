@@ -1,20 +1,20 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
-    "os"
-    "strings"
-    "time"
+	"fmt"
+	"net/http"
+	"os"
+	"strings"
+	"time"
 )
 
-func main(){
+func main() {
 	arg := os.Args[1]
 	if len(os.Args) >= 3 {
 		fmt.Fprintf(os.Stderr, "Too many urls:%s", arg)
 		os.Exit(1)
 	}
-	if !strings.HasPrefix(arg, "http://"){
+	if !strings.HasPrefix(arg, "http://") {
 		arg = "http://" + arg
 	}
 
