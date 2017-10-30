@@ -1,10 +1,10 @@
 package main
 
 import (
-    "fmt"
-    "os"
+	"fmt"
+	"os"
 )
 
-func main(){
-    fmt.Println("Arg[0]:",os.Args[0])
+func main() {
+	fmt.Println("Arg[0]:", os.Args[0])
 }
