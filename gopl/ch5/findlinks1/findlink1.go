@@ -10,12 +10,13 @@ import (
 func main() {
 	doc, err := html.Parse(os.Stdin)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "findlinks1 : %v", err)
+		fmt.Fprintf(os.Stderr, "findlinks : %v", err)
 		os.Exit(1)
 	}
 	for _, link := range visit(nil, doc) {
 		fmt.Println(link)
 	}
+    fmt.Println("---------------------------------")
 }
 
 func visit(links []string, n *html.Node) []string {
@@ -26,8 +27,14 @@ func visit(links []string, n *html.Node) []string {
 			}
 		}
 	}
-	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		links = visit(links, c)
-	}
-	return links
+    //exercise 5.1
+    if n.FirstChild != nil {
+        links = visit(links, n.FirstChild)
+    }
+
+    if n.NextSibling != nil {
+        links = visit(links, n.NextSibling)
+    }
+
+    return links
 }
