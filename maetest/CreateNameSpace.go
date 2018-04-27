@@ -57,7 +57,7 @@ func main() {
 	fmt.Printf("There are %d Deployments in the kube-system namespace.\n", len(dps.Items))
 
 	fmt.Println("Try create a namespace")
-	nsSpec := &v1.Namespace{ObjectMeta: metav1.ObjectMeta{Name:"fuck"}}
+	nsSpec := &v1.Namespace{ObjectMeta: metav1.ObjectMeta{Name:"officalsite"}}
 	_, err = clientset.CoreV1().Namespaces().Create(nsSpec)
 	if err != nil {
 		panic(err.Error())
